@@ -1,0 +1,429 @@
+1.x
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    setlocale(LC_ALL, "RU");
+    cout << "Введите первое число: ";
+    int x{};
+    cin >> x;
+    cout << "Введите второе число: ";
+    int y{};
+    cin >> y;
+
+    cout << x << "+" << y << "=" << x + y<< '\n';
+    cout << x << "-" << y << "=" << x - y<< '\n';
+    
+        
+        return 0;
+}
+
+_____________________________________________________________________
+2.3 
+
+#include <iostream>
+using namespace std;
+
+int doubleNumber(int x)
+{ 
+    return x * 2;
+}
+
+int main()
+{
+    setlocale(LC_ALL, "RU");
+    cout << "Введите число для удвоения: ";
+    int x;
+    cin >> x;
+    cout << doubleNumber(x);
+        
+        return 0;
+}
+_____________________________________________________________________
+2.x
+
+Проект "HW"
+
+_____________________________________________________________________
+4.10
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    cout << "Enter prime number\n";
+    int x{};
+    cin >> x;
+        if (x == 2) 
+        cout << "Nice";
+   else if (x == 3) 
+        cout << "Nice";
+   else if (x == 5) 
+        cout << "Nice";
+   else if (x == 7) 
+        cout << "Nice";
+    else
+        cout << "Is not prime num";
+
+
+    return 0;
+}_____________________________________________________________________
+4.12
+
+#include <iostream>
+#include <iomanip>
+#include <string>
+using namespace std;
+
+int main()
+{
+    cout << "Enter your full name: \n";
+    string name{};
+    getline (cin >> ws , name);
+    
+    cout << "Enter your age: \n";
+    double age{};
+    cin >> age;
+    
+    cout << "You've lived " <<
+        age / static_cast<double>(name.length())
+        << " years for each letter in your name.";
+   
+
+
+    return 0;
+}
+_____________________________________________________________________
+4.x 
+Вопрос 3
+
+
+double takenum() {
+	cout << "Enter a double value:";
+	double x;
+	cin >> x;
+
+	return x;
+}
+
+char mathsymbol() {
+	cout << "Enter one of the following: +, -, *, or /";
+	char mathsym;
+	cin >> mathsym;
+
+	return mathsym;
+}
+
+double add (double x, char mathsym, double y) {
+	
+	if (mathsym == '+')
+		return x + y;
+	else if (mathsym == '-')
+		return x - y;
+	else if (mathsym == '*')
+		return x * y;
+	else if (mathsym == '/')
+		return x / y;
+
+}
+
+int main()
+{
+	double x{ takenum() };
+	double y{ takenum() };
+	char mathsym{ mathsymbol() };
+	double res{ add(x, mathsym, y) };
+
+	cout << x << mathsym << y << "=" << res;
+
+	return 0;
+}
+
+Вопрос 4 
+
+ВАРИАНТ 1:
+
+#include <iostream>
+using namespace std;
+
+double height() {
+	cout << "Enter the height of the tower in meters:";
+		int x{};
+	cin >> x;
+
+	return x;
+}
+
+int main()
+{
+	constexpr double G { 9.8 };
+	double s{ height() }, t{}; double res;
+	
+
+	for (t = 0; t < 6; t++) {
+		res = 100 - ((G * (t * t)) / 2);
+		if (res > 0)
+		cout << "At " << t << " seconds, the ball is at height:" << res << endl;
+		else
+			cout << "At " << t << " seconds, the ball is on the ground.";
+	}
+	
+	return 0;
+}
+
+ ========================
+ ВАРИАНТ 2:
+ 
+ #include <iostream>
+using namespace std;
+
+double height() {
+	cout << "Enter the height of the tower in meters:";
+	int x;
+	cin >> x;
+
+	return x;
+}
+
+double math(double s, int t) {
+	constexpr double G{ 9.8 };
+	double res = s - ((G * (t * t)) / 2);
+
+	return res;
+}
+
+void rescout(double res, int t) {
+	if (res >= 0)
+		cout << "At " << t << " seconds, the ball is at height:" << res << endl;
+	else
+		cout << "At " << t << " seconds, the ball is on the ground.";
+}
+
+int main() {
+
+ double x{ height() };
+	for (double t = 0; t < 6; t++) {
+		rescout(math(x, t), t);
+	}
+
+	return 0;
+}
+
+==================
+ВАРИАНТ 3:
+
+#include <iostream>
+using namespace std;
+
+double height() {
+	cout << "Enter the height of the tower in meters:";
+		double x;
+	cin >> x;
+
+	return x;
+}
+ 
+double math(double s, int t) {
+	constexpr double G{ 9.8 };
+	double res = s - ((G * (t * t)) / 2);
+	
+	return res;
+}
+
+void rescout(double res, int t)
+{
+	if (res >=0)
+		cout << "At " << t << " seconds, the ball is at height:" << res << endl;
+	else
+		cout << "At " << t << " seconds, the ball is on the ground.";
+}
+
+int main()
+{    
+	double x{ height() };
+	rescout(math(x,0), 0);
+	rescout(math(x,1), 1);
+	rescout(math(x,2), 2);
+	rescout(math(x,3), 3);
+	rescout(math(x,4), 4);
+	rescout(math(x,5), 5);
+
+	
+	
+
+	return 0;
+}
+
+_____________________________________________________________________
+
+5.3
+
+#include <iostream>
+using namespace std;
+
+int addint() {
+	cout << "Enter a integer: \n";
+	int x;
+	cin >> x;
+
+	return x;
+}
+
+
+bool isEven(int x) {
+	
+	return (x % 2 == 0);
+
+}
+
+int main()
+{
+	int x { addint() };
+	bool y { isEven(x) };
+	if (y==true) 
+		cout << x << " is even number";
+	else
+		cout << x << " is not even number";
+	
+	return 0;
+}
+
+_____________________________________________________________________
+
+6.3
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    cout << "Enter smaller int\n";
+    int smaller{};
+    cin >> smaller;
+    cout << "Enter larger int\n";
+    int larger{};
+    cin >> larger;
+
+    if (smaller > larger)
+    {
+        cout << "Swapping the values...\n";
+        int x{ smaller }; // тут создается временная переменная "X"
+        smaller = larger;
+        larger = x;  
+    } //тут она удаляется 
+
+    cout << "The smaller value is: "<< smaller<< endl;
+    cout << "The larger value is: " << larger;
+    
+
+    return 0;
+}
+
+_____________________________________________________________________
+
+6.x
+Вопрос 3.
+
+#include <iostream>
+
+
+bool passOrFail() {
+
+	static int x{4};
+	x--;
+	return (x>0);
+}
+
+int main()
+{
+	std::cout << "User #1: " << (passOrFail() ? "Pass" : "Fail") << '\n';
+	std::cout << "User #2: " << (passOrFail() ? "Pass" : "Fail") << '\n';
+	std::cout << "User #3: " << (passOrFail() ? "Pass" : "Fail") << '\n';
+	std::cout << "User #4: " << (passOrFail() ? "Pass" : "Fail") << '\n';
+	std::cout << "User #5: " << (passOrFail() ? "Pass" : "Fail") << '\n';
+
+	return 0;
+}
+
+_____________________________________________________________________
+7.5
+
+#include <iostream>
+
+int cinnum() {
+	std::cout << "Enter int: ";
+	int x{};
+	std::cin >> x;
+	return x;
+}
+
+char cinmath() {
+	std::cout << "Enter math sym (+, -, *, / or %): ";
+	char math{};
+	std::cin >> math;
+	return math;
+}
+
+int calculate(int x, int y, char math) {
+	switch (math) {
+	case '+': return x + y;
+	case '-': return x - y;
+	case '*': return x * y;
+	case '/': return x / y;
+	case '%': return x % y;
+	default: std::cout << "Is not math sym!!!";
+	}
+}
+
+int main()
+{
+	int x{ cinnum() };
+	char math{ cinmath() };
+	int y{ cinnum() };
+	
+	std::cout << x << math << y << "=" << calculate(x, y, math);
+
+	return 0;
+}
+
+_____________________________________________________________________
+7.7
+
+Выопрос 2.
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int x{97};
+    while (x <= 122) {    
+        cout << static_cast <char> (x) << '-' << x <<'\n';
+        x++;
+   }
+    
+    return 0;
+}
+
+========================
+Вопрос 3.
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+     int x{5};
+    while (x >= 1) {
+        int y{x};
+        while (y >= 1) {
+            cout << y--<< ' ';
+        }
+        cout << '\n';
+        --x;
+  }
+    return 0;
+}
+_____________________________________________________________________
